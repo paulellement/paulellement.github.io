@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home | Paul's Unofficial Site</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.3rem;
+            margin: 0;
+            padding: 0;
+            background-color: #c7f1e0;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            text-align: center;
+        }
+        .heading-container {
+            position: relative;
+            margin-bottom: -10px;
+            padding: 0px;
+            margin: 0px;
+            
+        }
+
+        .heading-container img {
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            height: auto;
+            display: block; /* Ensure the image behaves as a block element */
+            object-fit: cover; /* Ensure the image covers the entire container */
+            
+        }
+        .heading-container p {
+            position:absolute;
+            top: 47%;
+            left: 10%;
+            color: #f1f1f1;
+            font-size: 3vw;
+        }
+
+
+        .heading-container h1 {
+            top: 17%;
+            left: 5%;
+            position: absolute;
+            color: #f1f1f1;
+            font-size: 7vw;
+        }
+
+        
+        
+
+
+        .grid {
+            display: grid;
+            grid-template-areas: "left right";
+            margin-top: 0px;
+        }
+
+        .subgrid {
+            grid-area: left;
+            display: grid;
+            grid-template-areas: "top" "middle" "bottom";
+            padding: 40px;
+            padding-top: 0px;
+            text-align: left;
+        }
+
+        
+
+        .container h2 {
+            grid-area: top;
+            padding-bottom: 20px;
+            text-align: center;
+            padding-left: 0px;
+            margin-left: 0px;
+        }
+        
+        .container p1 {
+            grid-area: middle;
+            margin-bottom: 20px;
+            
+        }
+
+        .container p2 {
+            grid-area: bottom;
+            
+        }
+
+        
+
+        h2 {
+            color: #333;
+            font-size: 2rem;
+            text-align: left;
+            padding-left: 40px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: circle;
+            font-size: larger;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        nav a:hover {
+            text-decoration: mediumaquamarine;
+            color: mediumaquamarine;
+            transition: 0.5s
+        }
+
+
+        .image-container {
+            grid-area: right;
+            text-align: center; /* Center the image horizontally */
+            position: relative; /* Position relative for absolute positioning of overlay */
+            display: inline-block; /* Ensure inline-block to allow overlay positioning */
+            padding-top: 12%;
+            padding-right: 5%;
+        }
+
+        .image-container img {
+            max-width: 100%; /* Make the image responsive */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 300px; /* Set maximum height */
+            transition: transform 0.5s ease; /* Add transition effect for smoother hover */
+            padding-right: 5%;
+        }
+
+        /* Overlay style */
+        .image-overlay {
+            position: absolute; /* Position the overlay */
+            
+            top: 0;
+            left: 0;
+            padding-top: 12%;
+            padding-right: 5%;
+            max-height: 250px;
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease; /* Add transition effect for smoother hover */
+        }
+
+        /* Show overlay on hover */
+        .image-container:hover .image-overlay {
+            
+            opacity: 1;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #333;
+        }
+
+        
+
+        footer{
+            padding-top: 20px;
+            margin: 0;
+            background-color: #111;
+        }
+        .footerContainer{
+            width: 100%;
+        }
+        .socialIcons{
+            display: flex;
+            justify-content: center;
+        }
+        .socialIcons a{
+            text-decoration: none;
+            padding:  10px;
+            background-color: white;
+            margin: 10px;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+        .socialIcons a i{
+            font-size: 2em;
+            color: black;
+            opacity: 0,9;
+            transition: 0.5s;
+        }
+        
+        .socialIcons a:hover{
+            background-color: #111;
+            transition: 0.5s;
+        }
+        .socialIcons a:hover i{
+            color: mediumaquamarine;
+            transition: 0.5s;
+        }
+        .footerNav{
+            margin: 0;
+            padding: 0;
+        }
+        .footerNav ul{
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        .footerNav ul li a{
+            color:white;
+            
+            
+            margin-right: 20px;
+            text-decoration: none;
+            font-size: 1.3em;
+            opacity: 0.7;
+            transition: 0.5s;
+
+        }
+        .footerNav ul li a:hover{
+            color: mediumaquamarine;
+            opacity: 1;
+        }
+        .footerBottom{
+            background-color: #111;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        .footerBottom p{
+            font-size: 0.8rem;
+            color: white;
+        }
+        .designer{
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0px 5px;
+        }
+        @media (max-width: 700px){
+            .footerNav ul{
+                flex-direction: column;
+            } 
+            .footerNav ul li{
+                width:100%;
+                text-align: center;
+                margin: 10px;
+            }
+            .socialIcons a{
+                padding: 8px;
+                margin: 4px;
+            }
+        }
+
+    </style>
+</head>
+<nav>
+    <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="Sched.html">Schedule</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li class="dropdown">
+            <a href="Fun.html" class="dropbtn">Fun</a>
+            <div class="dropdown-content">
+                <a href="Fun.html#quotes">Quotes</a>
+                <a href="Fun.html#facts">Fun Facts</a>
+                <a href="Fun.html#bucket">Bucket List</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<body>
+    <div class="container">
+        <div class="heading-container">
+           
+            <img src="prevost.JPG" alt="Me in prevost">
+            <h1>Welcome to my website! </h1>
+            <p>Bonus points if you recognize this location</p>
+            
+        </div>
+        
+        
+        <div class="grid">
+            <div class="subgrid">
+                <h2>About Me</h2>
+                <p1>Paul Ellement is an esteemed actor, director, artist, painter, astronaut,
+                    and two-time iron-man triathlon world champion. Actually, no he isn't. 
+                    He's a computer science and music technology student at that university
+                    in Montreal, Canada. He regularly attends McGill Outdoors Club meetings 
+                    and was a player on their execs' inner-tube waterpolo team before he decided to trip and faceplant into
+                    his hockey bench and get concussed. 
+                </p1>
+                <p2>
+                    Paul spends his summers guiding whitewater canoe trips at Camp Kandalore.
+                    He will be guiding some kids down La Rivière du Chef this summer, 
+                    a 26-day trip in Québec. He also recently learned to roll a kayak! 
+                    He worked at Kandalore's Outdoor Education Centre in the springs of 
+                    2022 and 2023, where he taught canoeing and mountaing biking, 
+                    ran the high-ropes course, and belayed rock climbers.
+                </p2>
+            </div>
+            <div class="image-container">
+                <img src="IMG_0750.JPG" alt="Image failed to load, but it's just me standing up in a canoe">
+                <div class="image-overlay">
+                    <img src="IMG_0749.JPG" alt="Image failed to load, but it's just me no longer standing up in a canoe">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="socialIcons">
+                <a href="https://www.facebook.com/profile.php?id=100015763864198"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/paul.ellement/"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="footerNav">
+                <ul><li><a href="Index.html">Home</a></li>
+                    <li><a href="Sched.html">Schedule</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                    <li><a href="Fun.html">Fun</a></li>
+                </ul>
+            </div>
+            <div class="footerBottom">
+                <p>Copyright &copy;2024; Designed by Paul Ellement.</span></p>
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
